@@ -1,0 +1,33 @@
+.square {
+    background-color: white;
+    margin : 0;
+    border : solid black 1px;
+    flex-grow: 1;
+}
+
+.row {
+    display: flex;
+    flex: 1;
+    
+    
+}
+
+body {
+    
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.board {
+    width: 800px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.active {
+    background-color: black;
+}
