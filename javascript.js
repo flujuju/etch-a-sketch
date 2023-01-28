@@ -45,6 +45,17 @@ function addBlack() {
 }
 
 function psycho() {
+    
+    
+    const divSquares = document.querySelectorAll('.square');
+    divSquares.forEach((square) => {
+        square.addEventListener('mouseenter', () => {
+            let r = Math.floor(Math.random() * 256);
+            let g = Math.floor(Math.random() * 256);
+            let b = Math.floor(Math.random() * 256);
+            square.style.backgroundColor = `rgb(${r},${g},${b})`;
+        });
+    });
 
 }
 
@@ -56,6 +67,7 @@ function reset() {
     const divSquares = document.querySelectorAll('.square');
     divSquares.forEach((square) => {
         square.classList.remove('active');
+        square.style.backgroundColor = 'white';
     });
 }
 
@@ -70,4 +82,10 @@ btnSquares.addEventListener('click', () => {
 
 btnReset.addEventListener('click', () => {
     reset();
+})
+
+btnPsycho.addEventListener('click', () => {
+    deleteBoard();
+    createBoard();
+    psycho();
 })
