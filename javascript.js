@@ -44,8 +44,7 @@ function addBlack() {
     });
 }
 
-function psycho() {
-    
+function psycho() {    
     
     const divSquares = document.querySelectorAll('.square');
     divSquares.forEach((square) => {
@@ -60,8 +59,34 @@ function psycho() {
 }
 
 function greys() {
+    const divSquares = document.querySelectorAll('.square');
+    divSquares.forEach((square) => {
+        square.addEventListener('mouseenter', () => {
+            if (square.classList.contains('grey4')){
+                square.classList.add('grey5');
+            }
+            else if(square.classList.contains('grey3')){
+                square.classList.add('grey4');
+            }
+            
+            else if(square.classList.contains('grey2')){
+                square.classList.add('grey3');
+            }
 
+            else if(square.classList.contains('grey1')){
+                square.classList.add('grey2');
+            }
+
+            else {
+                square.classList.add('grey1');
+            }       
+            
+            
+        });
+    });
 }
+
+
 
 function reset() {
     const divSquares = document.querySelectorAll('.square');
@@ -77,7 +102,6 @@ addBlack();
 btnSquares.addEventListener('click', () => {
     deleteBoard();
     createBoard(chooseSize());
-    addBlack();
 })
 
 btnReset.addEventListener('click', () => {
@@ -86,6 +110,18 @@ btnReset.addEventListener('click', () => {
 
 btnPsycho.addEventListener('click', () => {
     deleteBoard();
-    createBoard();
+    createBoard(chooseSize());
     psycho();
+})
+
+btnGreys.addEventListener('click', () => {
+    deleteBoard();
+    createBoard(chooseSize());
+    greys();
+})
+
+btnBasic.addEventListener('click', () => {
+    deleteBoard();
+    createBoard(chooseSize());
+    addBlack();
 })
